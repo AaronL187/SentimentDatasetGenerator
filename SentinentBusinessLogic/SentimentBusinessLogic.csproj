@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SentinentCore\SentimentCore.csproj" />
+    <ProjectReference Include="..\SentinentDataAccess\SentimentDataAccess.csproj" />
+    <ProjectReference Include="..\SentinentModel\SentimentModel.csproj" />
+  </ItemGroup>
+
+</Project>
