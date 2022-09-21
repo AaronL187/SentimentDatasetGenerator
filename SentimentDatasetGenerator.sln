@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentWebPresentation", "SentimentWebPresentation\SentimentWebPresentation.csproj", "{176B68F3-E2BB-4B29-A770-55664C9EA109}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentimentBusinessLogic", "SentinentBusinessLogic\SentimentBusinessLogic.csproj", "{AC8768ED-3E96-40D4-AD7E-1CB230118F1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentBusinessLogic", "SentinentBusinessLogic\SentimentBusinessLogic.csproj", "{AC8768ED-3E96-40D4-AD7E-1CB230118F1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentimentDataAccess", "SentinentDataAccess\SentimentDataAccess.csproj", "{85280D26-C7E3-41AB-8298-BC97E5F99F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentDataAccess", "SentinentDataAccess\SentimentDataAccess.csproj", "{85280D26-C7E3-41AB-8298-BC97E5F99F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentimentCore", "SentinentCore\SentimentCore.csproj", "{AD14C7F2-4332-45A6-92A3-9319C61D30A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentCore", "SentinentCore\SentimentCore.csproj", "{AD14C7F2-4332-45A6-92A3-9319C61D30A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentimentModel", "SentinentModel\SentimentModel.csproj", "{5C8D8E11-A87D-4D5A-8329-4295B3E1FF67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentModel", "SentinentModel\SentimentModel.csproj", "{5C8D8E11-A87D-4D5A-8329-4295B3E1FF67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentMVCPresentation", "SentimentMVCPresentation\SentimentMVCPresentation.csproj", "{F1802BBB-2FB3-41CC-9135-34474B7319F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{176B68F3-E2BB-4B29-A770-55664C9EA109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{176B68F3-E2BB-4B29-A770-55664C9EA109}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{176B68F3-E2BB-4B29-A770-55664C9EA109}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{176B68F3-E2BB-4B29-A770-55664C9EA109}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC8768ED-3E96-40D4-AD7E-1CB230118F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC8768ED-3E96-40D4-AD7E-1CB230118F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC8768ED-3E96-40D4-AD7E-1CB230118F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{5C8D8E11-A87D-4D5A-8329-4295B3E1FF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C8D8E11-A87D-4D5A-8329-4295B3E1FF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C8D8E11-A87D-4D5A-8329-4295B3E1FF67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1802BBB-2FB3-41CC-9135-34474B7319F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1802BBB-2FB3-41CC-9135-34474B7319F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1802BBB-2FB3-41CC-9135-34474B7319F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1802BBB-2FB3-41CC-9135-34474B7319F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
