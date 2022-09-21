@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SentimentBusinessLogic.DataTransferObjects;
 using SentimentMVCPresentation.Models;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,11 @@ namespace SentimentMVCPresentation.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public void Test(SearchPattern searchParameter)
+        {
+        
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
