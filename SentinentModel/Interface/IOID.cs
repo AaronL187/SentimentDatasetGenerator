@@ -4,7 +4,8 @@ using System.Text;
 
 namespace SentimentModel.Interface
 {
-    internal interface IOID
+    public interface IOID
     {
+        public long OID { get; set; }
     }
 }
