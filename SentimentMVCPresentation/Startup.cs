@@ -4,10 +4,13 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SentimentCore.DependencyInjection;
+using SentimentDataAccess.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity;
 
 namespace SentimentMVCPresentation
 {
@@ -29,6 +32,16 @@ namespace SentimentMVCPresentation
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // DI controller beállítása
+            var container = new UnityContainer();
+            SDI.DI = container;
+            new SentimentDataAccess.ModuleRegistration(container);
+            new SentimentBusinessLogic.ModuleRegistration(container);
+
+            // DB check
+            var context = SDI.Resolve<SentimentContext>();
+            context.Database.EnsureCreated();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
