@@ -7,5 +7,6 @@ namespace SentimentDataAccess.Interfaces
 {
     public interface ISentenceRepository : IRepository<Sentence>
     {
+        public Sentence GetRandomSentence();
     }
 }

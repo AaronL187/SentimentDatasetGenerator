@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SentimentBusinessLogic.DataTransferObjects;
+using SentimentBusinessLogic.ViewModels;
 using SentimentMVCPresentation.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,21 @@ namespace SentimentMVCPresentation.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            var model = new PrivacyViewModel();
+            model.PrivacyStatement = "aesdéef";
+
+            var rnd = new Random();
+            var i = rnd.Next(0,10) ;
+            if (i < 5)
+            {
+                return View("~/Views/Home/Privacy.cshtml", model);
+            }
+            else
+            {
+                return View("~/Views/Home/PrivacyAB.cshtml", model);
+            }
+
+            
         }
 
         public void Test(SearchPattern searchParameter)

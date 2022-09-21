@@ -35,8 +35,8 @@ namespace SentimentMVCPresentation
             // DI controller beállítása
             var container = new UnityContainer();
             SDI.DI = container;
-            new SentimentDataAccess.ModuleRegistration(container);
-            new SentimentBusinessLogic.ModuleRegistration(container);
+            new SentimentDataAccess.ModuleRegistration(container).Register();
+            new SentimentBusinessLogic.ModuleRegistration(container).Register();
 
             // DB check
             var context = SDI.Resolve<SentimentContext>();
