@@ -7,6 +7,7 @@ namespace SentimentBusinessLogic.ViewModels
     public class AddRatingViewModel
     {
         public long SentenceOID { get; set; }
+        public long SentimentUserOID { get; set; }
         public string SentenceText { get; set; }
     }
 }

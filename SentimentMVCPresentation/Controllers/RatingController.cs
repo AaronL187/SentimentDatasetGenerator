@@ -7,11 +7,36 @@ namespace SentimentMVCPresentation.Controllers
 {
     public class RatingController : Controller
     {
+        #region lazy loaded objects
+
+        private RatingManager _ratingManager;
+        private RatingManager RatingManager()
+        {
+            _ratingManager = SDI.Resolve<RatingManager>();
+            return _ratingManager;
+        }
+
+
+        #endregion
         // GET: RatingController
         public ActionResult Index()
         {
-            var model = SDI.Resolve<RatingManager>().GetAddRatingModel();
+            var model = RatingManager().GetAddRatingModel();
             return View(model);
+        }
+
+        [HttpPost]
+        public JsonResult SaveNewRating(long sentenceOid, long sentimentUserOid, bool? rating = null)
+        {
+            try
+            {
+                RatingManager().PersistRating(sentimentUserOid, sentenceOid, rating);
+            }
+            catch (System.Exception)
+            {
+                return Json(new {isSuccess = false});
+            }
+            return Json(new { isSuccess = true });
         }
 
         //// GET: RatingController/Details/5

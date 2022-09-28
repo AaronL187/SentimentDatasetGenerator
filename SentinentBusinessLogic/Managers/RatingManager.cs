@@ -28,12 +28,13 @@ namespace SentimentBusinessLogic.Managers
         public AddRatingViewModel GetAddRatingModel()
         {
             var sentence = SentenceRepository().GetRandomSentence();
-            var ratingModel = new AddRatingViewModel()
+            var ratingViewModel = new AddRatingViewModel()
             {
                 SentenceOID = sentence.OID,
                 SentenceText = sentence.Text
             };
-            return ratingModel;
+            ratingViewModel.SentimentUserOID = 1; //todo
+            return ratingViewModel;
         }
         public void PersistRating(long sentimentUserOid, long sentenceOid, bool? isPositive)
         { // adatbázisba írás

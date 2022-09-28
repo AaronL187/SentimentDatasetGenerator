@@ -1,6 +1,62 @@
 ﻿@model SentimentBusinessLogic.ViewModels.AddRatingViewModel
 <p>@Model.SentenceText</p>
-<input type="hidden" value="@Model.SentenceOID"/>
-<input type="button" value="Pozitív" />
-<input type="button" value="Negatív" />
-<input type="button" value="Nem tudom" />
+<input type="hidden" id="SentenceOID" value="@Model.SentenceOID" />
+<input type="hidden" id="SentimentUserOID" value="@Model.SentimentUserOID" />
+<input type="button" value="Pozitív" onclick="OnClick_PositiveRating()"/>
+<input type="button" value="Negatív" onclick="OnClick_NegativeRating()" />
+<input type="button" value="Nem tudom" onclick="OnClick_IDontKnowRating()" />
+
+
+<script type="text/javascript">
+    function OnClick_PositiveRating() {
+        var sentenceOid = $("#SentenceOID").val();
+        var sentimentUserOid = $("#SentimentUserOID").val();
+        $.post('@Url.Action("SaveNewRating")',
+        {
+            'sentenceOid': sentenceOid,
+            'sentimentUserOid': sentimentUserOid,
+            'rating': true
+        }, function(result) {
+            if(result.isSuccess){
+                window.location.reload();
+            }
+            else {
+                alert('Hiba történt, rossz lehet.');
+            }
+        });
+    }
+
+    function OnClick_NegativeRating() {
+        var sentenceOid = $("#SentenceOID").val();
+        var sentimentUserOid = $("#SentimentUserOID").val();
+        $.post('@Url.Action("SaveNewRating")',
+            {
+                'sentenceOid': sentenceOid,
+                'sentimentUserOid': sentimentUserOid,
+                'rating': false
+            }, function (result) {
+                if (result.isSuccess) {
+                    window.location.reload();
+                }
+                else {
+                    alert('Hiba történt, rossz lehet.');
+                }
+            });
+    }
+    function OnClick_IDontKnowRating() {
+        var sentenceOid = $("#SentenceOID").val();
+        var sentimentUserOid = $("#SentimentUserOID").val();
+        $.post('@Url.Action("SaveNewRating")',
+            {
+                'sentenceOid': sentenceOid,
+                'sentimentUserOid': sentimentUserOid
+            }, function (result) {
+                if (result.isSuccess) {
+                    window.location.reload();
+                }
+                else {
+                    alert('Hiba történt, rossz lehet.');
+                }
+            });
+    }
+</script>
