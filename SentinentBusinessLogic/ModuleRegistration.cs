@@ -18,6 +18,7 @@ namespace SentimentBusinessLogic
         public void Register()
         {
             _unityContainer.RegisterType<RatingManager>();
+            _unityContainer.RegisterType<SentenceManager>();
 
         }
     }
