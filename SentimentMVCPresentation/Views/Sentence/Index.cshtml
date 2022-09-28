@@ -8,8 +8,13 @@ A kívánt mondat szövege:
 
 <hr />
 
-Vagy válassz egy fájlt:
-<input type="file" />
+@using (Html.BeginForm("UploadFile", "Sentence", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.TextBox("file", "", new {  type= "file" }) <br />
+        <input type="submit" value="Upload" />
+    </div>
+}
 
 
 <script type="text/javascript">
@@ -20,7 +25,7 @@ Vagy válassz egy fájlt:
             $.post('@Url.Action("SaveNewSentence")', 
             {
                 'text': text
-            }, function(result){
+            }, function(result) {
                 if(result.isSuccess) {
                     $("#txtSentence").val('');
                 } else {

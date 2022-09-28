@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using SentimentBusinessLogic.Managers;
 using SentimentCore.DependencyInjection;
+using System.Collections.Generic;
+using System.IO;
 using System.Web;
 
 namespace SentimentMVCPresentation.Controllers
@@ -36,6 +39,36 @@ namespace SentimentMVCPresentation.Controllers
                 return Json(new { IsSuccess = false }); //kicsi/nagy i??
             }
             return Json(new { IsSuccess = true });
+        }
+
+        [HttpPost]
+        public IActionResult UploadFile(IFormFile file)
+        {
+            try
+            {
+                if (file.Length > 0)
+                {
+                    var sentences = new List<string>();
+                    string _FileName = Path.GetFileName(file.FileName);
+                    using (var reader = new StreamReader(file.OpenReadStream()))
+                    {
+                        while (reader.Peek() >=0)
+                            sentences.Add(reader.ReadLine());
+                    }
+                    SentenceManager().SaveNewSentences(sentences);
+
+                }
+                //ViewBag.Message = "File Uploaded Successfully!!";
+                //return View();
+            }
+            catch
+            {
+                //ViewBag.Message = "File upload failed!!";
+                //return View();
+
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
