@@ -16,7 +16,22 @@ Vagy válassz egy fájlt:
     
     function OnClick_Save() {
         var text = $("#txtSentence").val();
-        if(text != "")
+        if(text.match(/\s/)) {
+            $.post('@Url.Action("SaveNewSentence")', 
+            {
+                'text': text
+            }, function(result){
+                if(result.isSuccess) {
+                    $("#txtSentence").val('');
+                } else {
+                    alert('hiba');
+                }
+
+            });
+        }
+        else {
+            alert('mondat?')
+        }
     }
 
 </script>

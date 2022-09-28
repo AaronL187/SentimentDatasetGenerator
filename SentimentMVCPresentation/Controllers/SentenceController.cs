@@ -33,8 +33,9 @@ namespace SentimentMVCPresentation.Controllers
             }
             catch (System.Exception)
             {
-                return Json
+                return Json(new { IsSuccess = false }); //kicsi/nagy i??
             }
+            return Json(new { IsSuccess = true });
         }
     }
 }
